@@ -1,7 +1,7 @@
 ---
 title: 공통 응답 API 구현 - 프로젝트에서의 효율적이고 일관된 응답 관리
 date: "2024-08-26T22:12:03.284Z"
-description: "공통 응답 API 구현 - 프로젝트에서의 효율적이고 일관된 응답 관리"
+description: "개인 프로젝트 mall-fashion 개선기 #1"
 ---
 
 ## 도입 배경
@@ -14,7 +14,7 @@ description: "공통 응답 API 구현 - 프로젝트에서의 효율적이고 �
 
 성공적인 응답은 프로젝트 전반에 걸쳐 공통된 형태로 반환될 수 있도록 `SuccessResult` 클래스로 캡슐화했습니다. 이 클래스는 제네릭 타입을 사용하여 다양한 데이터 타입을 응답으로 포함할 수 있습니다.
 
-```
+```java
 @Getter
 @NoArgsConstructor
 public class SuccessResult<T> {
@@ -34,7 +34,7 @@ public class SuccessResult<T> {
 
 예외 응답을 일관되게 처리하기 위해 `ErrorResult` 클래스를 사용했습니다. 이 클래스는 에러 코드와 메시지를 포함하며, 프로젝트의 다양한 예외 상황에 대한 정보를 제공합니다.
 
-```
+```java
 @Getter
 @NoArgsConstructor
 public class ErrorResult {
@@ -56,7 +56,7 @@ public class ErrorResult {
 
 프로젝트 내에서 발생할 수 있는 다양한 예외 상황을 관리하기 위해 `ErrorEnum`을 도입했습니다. 각 예외 상황에 대해 고유한 코드와 메시지를 정의하여, 예외 상황이 발생할 때 일관된 응답을 보장할 수 있습니다.
 
-```
+```java
 @Getter
 public enum ErrorEnum {
     // 시스템 예외
@@ -93,11 +93,10 @@ public enum ErrorEnum {
 
 프로젝트에서 `ResponseEntity`는 주로 예외 응답을 반환할 때 사용되었습니다. 예외 발생 시 `ErrorResult` 객체와 함께 적절한 HTTP 상태 코드를 포함하여 클라이언트에 응답을 반환할 수 있습니다.
 
-```
+```java
 public ResponseEntity<ErrorResult> handleException(SomeException e) {
-    ErrorEnum errorEnum = ErrorEnum.INVALID_REQUEST;
     ErrorResult errorResult = ErrorResult.builder()
-                                         .errorEnum(errorEnum)
+                                         .errorEnum(ErrorEnum.INVALID_REQUEST)
                                          .build();
     return new ResponseEntity<>(errorResult, errorEnum.getStatus());
 }
@@ -111,3 +110,5 @@ public ResponseEntity<ErrorResult> handleException(SomeException e) {
 공통 응답 API를 도입함으로써 프로젝트의 코드 일관성과 유지 보수성이 크게 향상되었습니다. 성공적인 응답과 예외적인 응답을 각각 SuccessResult와 ErrorResult 클래스로 통일함으로써, 보다 명확하고 직관적인 코드를 작성할 수 있게 되었습니다. 또한, ErrorEnum을 사용하여 예외를 관리함으로써 코드의 재사용성을 높이고, ResponseEntity를 통해 유연하게 응답을 제어할 수 있었습니다.
 
 이러한 접근 방식을 통해 프로젝트의 응답 구조가 보다 체계적으로 정리되었으며, 이를 통해 클라이언트와의 통신이 더욱 명확해지고 오류 처리가 간소화되었습니다. 앞으로도 이 구조를 확장하여 다양한 상황에 대응할 수 있는 공통 응답 API를 만들어 나갈 수 있을 것입니다.
+
+[mall-fashion 프로젝트 링크](https://github.com/f-lab-edu/shopping-mall-fashion)
