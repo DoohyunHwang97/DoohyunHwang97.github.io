@@ -9,15 +9,15 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Godo dev`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Doohyun Hwang`,
+      summary: `who is passionate about football and visiting unknown places`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Doohyun Hwang's personal dev blog`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `dodogodo0702`,
     },
   },
   plugins: [
