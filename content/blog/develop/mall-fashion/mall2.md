@@ -2,6 +2,7 @@
 title: 효율적인 예외 처리 - RestControllerAdvice를 활용한 전역 예외 처리
 date: "2024-08-27T22:12:03.284Z"
 description: "개인 프로젝트 mall-fashion 개선기 #2"
+version: v3
 ---
 
 ## 도입 배경
