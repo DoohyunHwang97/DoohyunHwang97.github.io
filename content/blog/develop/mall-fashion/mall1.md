@@ -2,6 +2,7 @@
 title: 공통 응답 API 구현 - 프로젝트에서의 효율적이고 일관된 응답 관리
 date: "2024-08-26T22:12:03.284Z"
 description: "개인 프로젝트 mall-fashion 개선기 #1"
+version: v2
 ---
 
 ## 도입 배경
@@ -111,4 +112,10 @@ public ResponseEntity<ErrorResult> handleException(SomeException e) {
 
 이러한 접근 방식을 통해 프로젝트의 응답 구조가 보다 체계적으로 정리되었으며, 이를 통해 클라이언트와의 통신이 더욱 명확해지고 오류 처리가 간소화되었습니다. 앞으로도 이 구조를 확장하여 다양한 상황에 대응할 수 있는 공통 응답 API를 만들어 나갈 수 있을 것입니다.
 
-[mall-fashion 프로젝트 링크](https://github.com/f-lab-edu/shopping-mall-fashion)
+## 참고 자료
+
+- [@RestControllerAdvice를 이용한 Spring 예외 처리 방법](https://mangkyu.tistory.com/205)
+
+## 프로젝트 링크
+
+- [mall-fashion](https://github.com/f-lab-edu/shopping-mall-fashion)
