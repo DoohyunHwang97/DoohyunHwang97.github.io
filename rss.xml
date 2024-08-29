@@ -1,4 +1,231 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Doohyun Hwang's personal dev blog]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 28 Aug 2024 05:41:28 GMT</lastBuildDate><item><title><![CDATA[효율적인 예외 처리 - RestControllerAdvice를 활용한 전역 예외 처리]]></title><description><![CDATA[…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall2/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall2/</guid><pubDate>Tue, 27 Aug 2024 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;도입 배경&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Doohyun Hwang's personal dev blog]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 29 Aug 2024 05:14:39 GMT</lastBuildDate><item><title><![CDATA[지속적인 통합 - Github Action을 통한 안정적인 통합 환경 구축]]></title><description><![CDATA[도입 배경 현재 프로젝트는 코드의 통합을 위해 feature 브랜치에서 작업 후 develop…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall3/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall3/</guid><pubDate>Wed, 28 Aug 2024 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;도입 배경&lt;/h2&gt;
+&lt;p&gt;현재 프로젝트는 코드의 통합을 위해 feature 브랜치에서 작업 후 develop 브랜치로 병합하는 방식을 사용하고 있습니다.로컬 환경에서 테스트를 모두 통과했을 때 병합을 하는 것을 규칙으로 하고 있는데요. 이것을 강제할 수 없다는 문제점이 존재합니다.&lt;/p&gt;
+&lt;p&gt;이전의 코드 통합시 테스트를 실수로 잊어버리면 다음 기능을 구현할 때 번번이 버그가 발생하고는 했습니다. 그리고 이는 빌드 실패로 이어지기도 했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/034815bcbbd95f0d74ddc186f9fb0fd4/874d1/mall3-error.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.21518987341772%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBklEQVR42lWQa26DMBCEOUjzrNoEgzHGxuZNEooSSNre/zTTZaNW6o+VpV3PtzMbRDKFNAb9MGK6f+E6PdCfPyBiBW1LWKPQ5Rkq7VBmOZrujLa/QBuHSGrEiYZUGRKlEUYJggUopELRtrhNnww8XUb4soFxJX+SykClliELINU5BPXfDwK7/RteVlus1jusN3sEMQEPMoHvnsCy7uCKml/rKwaKSDHQWM+lyakkcO4qnm22rwxjoCCgJctl02IYJ47bnQaKNcCS4Cgki40t4HyNuunhaaEvGl4SiqfTP4dhnKJ3BebbHfPjG+N15riC+hlBllsugpDAS5p4uRvVMZT/ov66/AGYy56IXgz6vAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;mall3-error&quot;
+        title=&quot;&quot;
+        src=&quot;/static/034815bcbbd95f0d74ddc186f9fb0fd4/f058b/mall3-error.png&quot;
+        srcset=&quot;/static/034815bcbbd95f0d74ddc186f9fb0fd4/c26ae/mall3-error.png 158w,
+/static/034815bcbbd95f0d74ddc186f9fb0fd4/6bdcf/mall3-error.png 315w,
+/static/034815bcbbd95f0d74ddc186f9fb0fd4/f058b/mall3-error.png 630w,
+/static/034815bcbbd95f0d74ddc186f9fb0fd4/40601/mall3-error.png 945w,
+/static/034815bcbbd95f0d74ddc186f9fb0fd4/78612/mall3-error.png 1260w,
+/static/034815bcbbd95f0d74ddc186f9fb0fd4/874d1/mall3-error.png 1310w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;text-align: center; margin-top: 5px; margin-bottom: 20px; font-size: 14px;&quot;&gt;
+  쿠폰 기능을 개발하다 발견한 스토어 도메인의 버그
+&lt;/div&gt;
+&lt;p&gt;이러한 문제는 개인 프로젝트를 진행할 때는 다음 피쳐 개발 때 fix하면 되겠지라고 안일하게 생각할 수 있지만 실제 서비스는 다릅니다. 여러명의 개발자들이 협업하는 상황에서
+이러한 문제는 다른 팀원들의 작업에 영향을 주고 전체 프로젝트의 안정성에 악영향을 줄 수 있습니다.
+또한 이는 git-flow 전략을 따르고 있었던 현재 프로젝트의 브랜치 전략을 위배하는 것입니다. develop 브랜치의 코드는 항상 안정성을 유지해야 하기 때문입니다.&lt;/p&gt;
+&lt;p&gt;이러한 문제를 해결하기 위해서 프로젝트에 CI를 도입하여 &lt;strong&gt;작은 변경사항을 지속적으로 적용&lt;/strong&gt;하되 develop, release, main &lt;strong&gt;브랜치의 안정성을 지키고자 합니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;CI 란&lt;/h2&gt;
+&lt;p&gt;지속적 통합 (Continuous Integration, CI)은 소프트웨어 개발 과정에서 작은 변경 사항들을 자주, 그리고 지속적으로 기존 코드베이스에 통합하는 개발 방식입니다. 이 접근 방식은 개발 초기 단계에서 버그를 발견하고 수정할 수 있게 하여 소프트웨어의 품질을 향상시키고 개발 속도를 높이는 것을 목표로 합니다. CI는 주로 빌드와 테스트 과정을 자동화하여 개발자들이 수작업으로 해야 하는 귀찮음을 줄이고, 코드 통합 과정에서 발생할 수 있는 충돌을 예방하는 데 도움을 줍니다.&lt;/p&gt;
+&lt;h3&gt;1. 지속적인 통합의 의미&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CI는 코드 변경 사항을 빈번하게(하루에도 여러 번) 메인 코드베이스에 병합하는 것을 말합니다.&lt;/li&gt;
+&lt;li&gt;각 병합 시마다 자동으로 빌드와 테스트가 실행되어, 변경 사항이 기존 코드와 잘 통합되는지 확인합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;충돌 예방: 작은 단위로 자주 통합함으로써 코드 충돌을 줄이고, 팀 간 협업을 원활하게 합니다.&lt;/li&gt;
+&lt;li&gt;빠른 피드백: 코드 변경 후 즉시 빌드 및 테스트가 실행되므로, 문제를 조기에 발견하고 수정할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;높은 코드 품질: 자동화된 테스트를 통해 코드의 안정성을 유지하며, 배포 전 품질을 향상시킵니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. 자동화의 중요성&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CI의 핵심은 자동화입니다. 수동으로 빌드와 테스트를 실행하는 것은 비효율적이고 시간이 많이 걸립니다. CI 도구를 사용하면 이러한 과정을 자동으로 실행할 수 있어, 개발자들이 더 중요한 작업에 집중할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;자동화된 빌드 및 테스트는 변경 사항을 즉시 검증하므로, 버그나 오류가 발생했을 때 빠르게 대응할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. CI의 과정&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;코드 변경: 개발자가 코드에 변경 사항을 추가하고 이를 버전 관리 시스템(예: Git)에 커밋합니다.&lt;/li&gt;
+&lt;li&gt;자동 빌드: 커밋된 코드가 CI 서버에 의해 자동으로 빌드됩니다.&lt;/li&gt;
+&lt;li&gt;자동 테스트: 빌드된 코드에 대해 자동화된 테스트가 실행되어 코드의 안정성을 검증합니다.&lt;/li&gt;
+&lt;li&gt;피드백: 빌드 및 테스트 결과가 개발자에게 즉시 피드백으로 제공되어, 문제를 빠르게 인지하고 수정할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Github Action 선택 이유&lt;/h2&gt;
+&lt;p&gt;Github Action을 선택한 이유는 프로젝트 특성상 Jenkins의 장점이 발휘될 여지가 적고 오히려 Github Action의 장점이 크게 부각될 여지가 있기 때문입니다.&lt;/p&gt;
+&lt;p&gt;현재 진행하고 있는 프로젝트의 특징은 아래와 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github 기반&lt;/li&gt;
+&lt;li&gt;복잡하지 않은 CI/CD 파이프라인&lt;/li&gt;
+&lt;li&gt;제한된 서버 비용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Jenkins의 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;복잡한 CI/CD 파이프라인에 특화되어 다양한 커스터마이징 가능&lt;/li&gt;
+&lt;li&gt;수 천개의 플러그인을 통한 높은 확장성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Jenkins의 단점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;추가적인 서버 비용, 유지보수 비용&lt;/li&gt;
+&lt;li&gt;Github와의 추가적인 연동 필요&lt;/li&gt;
+&lt;li&gt;직관적이지 않은 UI와 높은 설정 복잡도&lt;/li&gt;
+&lt;li&gt;플러그인에 대한 의존성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Github Action의 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;깃허브 클라우드 기반: public 저장소의 경우 추가적인 서버비용이 발생하지 않습니다.&lt;/li&gt;
+&lt;li&gt;Github와의 연동이 편이&lt;/li&gt;
+&lt;li&gt;비교적 쉬운 설정&lt;/li&gt;
+&lt;li&gt;docker의 쉬운 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;즉 정리하자면 Jenkins를 활용하기에 지금 프로젝트는 아직 초기 개발 상태이기 때문에 복잡한 CI/CD 설정이 필요하지 않고 docker을 사용하며 서버비용이 제한되어 있는 상황이기 때문에 Github Action을 선택하게 되었습니다. 추후에 프로젝트 규모가 커져 CI/CD 파이프라인의 좀 더 세밀한 커스터마이징이 필요해진다면 그 때 Jenkins CI를 고려해볼만 할 것 같습니다.&lt;/p&gt;
+&lt;h2&gt;Github Action CI 설정&lt;/h2&gt;
+&lt;p&gt;현재 프로젝트에서 CI를 위해 필요한 것은 테스트와 빌드뿐이었기 때문에 설정 자체는 어렵지 않았습니다. 오히려 Jenkins CI보다 매우 간편해서 놀랐습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; CI to develop
+
+&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;develop&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;develop&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
+
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v3
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set up JDK 17
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;java@v3
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;java-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;17&quot;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;distribution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;temurin&quot;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Grant execute permission for gradlew
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; chmod +x gradlew
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build and test with Gradle
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ./gradlew clean build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;1. WorkFlow&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; CI to develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;워크플로우는 여러 Job으로 구성되고, Event에 의해 트리거될 수 있는 자동화된 프로세스입니다.&lt;/li&gt;
+&lt;li&gt;name: 이 워크플로우의 이름을 정의합니다. GitHub Actions UI에서 이 이름으로 워크플로우를 식별할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Event&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;develop&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;develop&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Workflow를 Trigger(실행)하는 특정 활동이나 규칙을 얘기합니다.&lt;/li&gt;
+&lt;li&gt;다음과 같은 상황에서 사용됩니다.
+&lt;ul&gt;
+&lt;li&gt;특정 브랜치로 Push&lt;/li&gt;
+&lt;li&gt;특정 브랜치로 Pull Request&lt;/li&gt;
+&lt;li&gt;특정 시간대에 반복(Cron)&lt;/li&gt;
+&lt;li&gt;Webhook을 사용해 외부 이벤트를 통해 실행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. Job&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Job은 여러 Step으로 구성되고, 가상 환경의 인스턴스에서 실행됩니다.&lt;/li&gt;
+&lt;li&gt;다른 Job에 의존 관계를 가질 수 있고, 독립적으로 병렬 실행도 가능합니다.&lt;/li&gt;
+&lt;li&gt;runs-on: 이 작업이 실행될 환경을 정의합니다. 여기서는 ubuntu-latest를 사용하여 최신 버전의 Ubuntu 환경에서 작업을 실행합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. Steps&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Task들의 집합으로, 커맨드를 날리거나 action을 실행할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;단계별 설명&lt;/h4&gt;
+&lt;h5&gt;1. Check out the repository&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub 리포지토리의 코드 파일을 현재 작업 환경으로 체크아웃(복제)합니다. actions/checkout 액션을 사용하여, 리포지토리의 코드를 워크플로우 환경에 다운로드합니다. 이는 Jenkins와 대비되는 Github만의 강력한 통합 기능이기도 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;2. Set up JDK 17&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set up JDK 17
+  &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;java@v3
+  &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;java-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;17&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;distribution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;temurin&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;actions/setup-java 액션을 사용하여, Java Development Kit (JDK) 17을 설치하고 사용할 수 있도록 환경을 설정합니다. distribution: &quot;temurin&quot;은 Temurin(OpenJDK 배포판)을 사용한다는 것을 의미합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;3. Grant execute permission for gradlew&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Grant execute permission for gradlew
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; chmod +x gradlew&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;gradlew 파일에 실행 권한을 부여합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;4. Build and test with Gradle&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build and test with Gradle
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ./gradlew clean build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;빌드 및 테스트를 실행합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;이렇게 develop 브랜치로의 CI의 성공적인 구현을 마쳤습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6241824453e7fb0afefc1343aee6d27e/c7bb6/mall3-ci-success-result.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB7ElEQVR42o2SW2/TQBCF8//5CQiJl75VCCohQBVSpb4ghEgEpUlpq8aJL/F1ba/3aseH2XVoCg+IlT7Pjrw+njk7s5P5Gzy7eI44jrEONthGETbbEMFmi5I1KEWPVhqk3YCM4FJjvx+IPTFOcRwxYlqzkRLb9xCCo6wYhJToKXcYY9GRmFQGnbIQ2kIR2hj/zlgLSwzDAKfjmL1dXWARXSOpcy/WdhzKaNg9iRLDkziMh3jADlQICTt0b6cK59ESi3iJ78ENom2M+4c1qrqhSjQ6Iak6ilIRAlwoFLxHTmRtj7Tp8ZAbT0OdeEH36LRCnOXkX4IkLcAa7j+W1N7fCNVT+xNuz6VF3VlwpY6Ct0WA+eYarGBIdimqqvIe/s9SdqSC9tSyOz9Ogi65+XlLYhl2WYGUSNIcecmo/RYNF/5ipD6iyDdppkupuEEt9LHCVgl8vfqGIIywDkOst5Fvf0MEYYIwTv0PnBUla/+wwwnnjQbrnrS8ZiFW4R1kJdCUjSeKYuR5jqosyILCV/Kv5SbBj41LgirGy8+vcPLlDC8+neJ08R6cS7BWesNZ54w3NFIKjB9y4eaxf0TSbI6/PYzqFGc/PuLD6hKvr87xbnmJuuXIa460lkiYpChQkJ9uvyOyRtJl6EekmTz8Bax5SSFblkLDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;result&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6241824453e7fb0afefc1343aee6d27e/f058b/mall3-ci-success-result.png&quot;
+        srcset=&quot;/static/6241824453e7fb0afefc1343aee6d27e/c26ae/mall3-ci-success-result.png 158w,
+/static/6241824453e7fb0afefc1343aee6d27e/6bdcf/mall3-ci-success-result.png 315w,
+/static/6241824453e7fb0afefc1343aee6d27e/f058b/mall3-ci-success-result.png 630w,
+/static/6241824453e7fb0afefc1343aee6d27e/40601/mall3-ci-success-result.png 945w,
+/static/6241824453e7fb0afefc1343aee6d27e/78612/mall3-ci-success-result.png 1260w,
+/static/6241824453e7fb0afefc1343aee6d27e/c7bb6/mall3-ci-success-result.png 1986w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이로써 제 프로젝트는 develop 브랜치의 안정성을 지키면서도 Github Action이 제공하는 Event 기반 테스트와 빌드 자동화를 통해 별다른 노력 없이 CI에 들이는 시간 또한 효율적으로 아낄 수 있었습니다. 추후 release 브랜치로의 통합 과정에는 배포 자동화를 추가하고 가능하다면 qa테스트(부하테스트 등)까지 자동화하여 prod 레벨까지의 CD(Continuous Deployment)가
+가능해졌으면 하는 바람입니다.(그때는 Jenkins를 쓸 수도 있겠군요). 긴 글 읽어주셔서 감사합니다!&lt;/p&gt;
+&lt;h2&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/actions&quot;&gt;Github Action Docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zzsza.github.io/development/2020/06/06/github-action&quot;&gt;깃허브 액션 사용법 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[효율적인 예외 처리 - RestControllerAdvice를 활용한 전역 예외 처리]]></title><description><![CDATA[…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall2/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall2/</guid><pubDate>Tue, 27 Aug 2024 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;도입 배경&lt;/h2&gt;
 &lt;p&gt;기존의 프로젝트에서는 각 도메인마다 개별적으로 컨트롤러 내에 &lt;code class=&quot;language-text&quot;&gt;@ExceptionHandler&lt;/code&gt;를 정의하여 예외를 처리했습니다. 이로 인해 같은 예외 클래스를 처리하는 코드의 중복이 발생했고, 예외 처리가 분산되어 관리가 어려워지는 문제를 겪었습니다. 이에 따라 모든 예외를 한 곳에서 일관되게 처리할 수 있는 방법을 찾게 되었고, 그 결과 &lt;code class=&quot;language-text&quot;&gt;@RestControllerAdvice&lt;/code&gt;를 활용하여 전역 예외 처리기를 구현하게 되었습니다.&lt;/p&gt;
 &lt;h2&gt;RestControllerAdvice와 ExceptionHandler의 역할&lt;/h2&gt;
 &lt;h3&gt;1. @RestControllerAdvice: 전역 예외 처리기&lt;/h3&gt;
