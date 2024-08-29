@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Doohyun Hwang's personal dev blog]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 29 Aug 2024 05:14:39 GMT</lastBuildDate><item><title><![CDATA[지속적인 통합 - Github Action을 통한 안정적인 통합 환경 구축]]></title><description><![CDATA[도입 배경 현재 프로젝트는 코드의 통합을 위해 feature 브랜치에서 작업 후 develop…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall3/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall3/</guid><pubDate>Wed, 28 Aug 2024 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;도입 배경&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Doohyun Hwang's personal dev blog]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 29 Aug 2024 05:27:30 GMT</lastBuildDate><item><title><![CDATA[지속적인 통합 - Github Action을 통한 안정적인 통합 환경 구축]]></title><description><![CDATA[도입 배경 현재 프로젝트는 코드의 통합을 위해 feature 브랜치에서 작업 후 develop…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall3/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/develop/mall-fashion/mall3/</guid><pubDate>Wed, 28 Aug 2024 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;도입 배경&lt;/h2&gt;
 &lt;p&gt;현재 프로젝트는 코드의 통합을 위해 feature 브랜치에서 작업 후 develop 브랜치로 병합하는 방식을 사용하고 있습니다.로컬 환경에서 테스트를 모두 통과했을 때 병합을 하는 것을 규칙으로 하고 있는데요. 이것을 강제할 수 없다는 문제점이 존재합니다.&lt;/p&gt;
 &lt;p&gt;이전의 코드 통합시 테스트를 실수로 잊어버리면 다음 기능을 구현할 때 번번이 버그가 발생하고는 했습니다. 그리고 이는 빌드 실패로 이어지기도 했습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -158,12 +158,12 @@
 &lt;li&gt;Task들의 집합으로, 커맨드를 날리거나 action을 실행할 수 있습니다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;단계별 설명&lt;/h4&gt;
-&lt;h5&gt;1. Check out the repository&lt;/h5&gt;
+&lt;h5&gt;1. 저장소 Checkout&lt;/h5&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;GitHub 리포지토리의 코드 파일을 현재 작업 환경으로 체크아웃(복제)합니다. actions/checkout 액션을 사용하여, 리포지토리의 코드를 워크플로우 환경에 다운로드합니다. 이는 Jenkins와 대비되는 Github만의 강력한 통합 기능이기도 합니다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5&gt;2. Set up JDK 17&lt;/h5&gt;
+&lt;h5&gt;2. JDK 17 세팅&lt;/h5&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set up JDK 17
   &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;java@v3
   &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -172,13 +172,13 @@
 &lt;ul&gt;
 &lt;li&gt;actions/setup-java 액션을 사용하여, Java Development Kit (JDK) 17을 설치하고 사용할 수 있도록 환경을 설정합니다. distribution: &quot;temurin&quot;은 Temurin(OpenJDK 배포판)을 사용한다는 것을 의미합니다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5&gt;3. Grant execute permission for gradlew&lt;/h5&gt;
+&lt;h5&gt;3. gradlew에 실행권한 부여&lt;/h5&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Grant execute permission for gradlew
   &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; chmod +x gradlew&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;gradlew 파일에 실행 권한을 부여합니다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5&gt;4. Build and test with Gradle&lt;/h5&gt;
+&lt;h5&gt;4. Gradle 빌드&amp;#x26;테스트&lt;/h5&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build and test with Gradle
   &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ./gradlew clean build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
